@@ -2,7 +2,8 @@ package jeugotresenraya;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
-
+import static jeugotresenraya.ventana.puntaje;
+import jeugotresenraya.Mensaje;
 public class juegoLogica {
     int turno;
     int pX;
