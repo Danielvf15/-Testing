@@ -6,6 +6,8 @@
 package jeugotresenraya;
 
 import java.awt.Toolkit;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -20,6 +22,7 @@ public class RegistroPrincipal extends javax.swing.JFrame {
     public RegistroPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**
@@ -159,35 +162,34 @@ public class RegistroPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-       
+            
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ventana a = new ventana();
-        
-        a.jLabel1.setText(jTextField1.getText());
-        a.jLabel3.setText(jTextField2.getText());
-        a.puntaje.setText(jTextField3.getText());
-         
-        
-        a.setVisible(true);
-        this.setVisible(false);
-        
+        if(jTextField3.getText().length() != 0 && jTextField1.getText().length() != 0 && jTextField2.getText().length() != 0)
+        {
+            a.jLabel1.setText(jTextField1.getText());
+            a.jLabel3.setText(jTextField2.getText());
+            a.puntaje.setText(jTextField3.getText());
+            a.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null,"INGRESE DATOS A LOS CAMPOS");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         int c = evt.getKeyChar();
         
-        if(c <0 || c > 9){
-            if(jTextField3.getText().length()>=2)
-                evt.consume();
-                Toolkit.getDefaultToolkit().beep();    
-        }
-                 
+        if( (c <0 || c < 6) || jTextField3.getText().length()==1 || Character.isLetter(c)){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();    
+        }     
     }//GEN-LAST:event_jTextField3KeyTyped
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -196,14 +198,14 @@ public class RegistroPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-        if(jTextField1.getText().length()>= 10){
+        if(jTextField1.getText().length()>= 10 ){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();    
         }
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
-        if(jTextField2.getText().length()>= 10){
+        if(jTextField2.getText().length()>= 10 ){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();    
         }
@@ -217,35 +219,12 @@ public class RegistroPrincipal extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistroPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistroPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistroPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RegistroPrincipal().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

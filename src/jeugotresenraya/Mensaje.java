@@ -14,10 +14,10 @@ public class Mensaje extends javax.swing.JFrame {
     /**
      * Creates new form Mensaje
      */
-    public Mensaje() {
+       public Mensaje() {
         initComponents();
         this.setLocationRelativeTo(null);
-                
+        setResizable(false);  
     }
 
     /**
@@ -30,7 +30,7 @@ public class Mensaje extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        ganador = new javax.swing.JLabel();
         NUEVO = new javax.swing.JButton();
         SALIR = new javax.swing.JButton();
 
@@ -39,7 +39,7 @@ public class Mensaje extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("El ganador es:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ganador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         NUEVO.setText("JUGAR DE NUEVO");
         NUEVO.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +70,7 @@ public class Mensaje extends javax.swing.JFrame {
                         .addComponent(SALIR))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ganador, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -79,7 +79,7 @@ public class Mensaje extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ganador, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NUEVO)
@@ -97,18 +97,18 @@ public class Mensaje extends javax.swing.JFrame {
     }//GEN-LAST:event_NUEVOActionPerformed
 
     private void SALIRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SALIRActionPerformed
+        ventana cr = new ventana();
+        cr.dispose();
         dispose();
     }//GEN-LAST:event_SALIRActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton NUEVO;
     private javax.swing.JButton SALIR;
+    public static javax.swing.JLabel ganador;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,6 +19,7 @@ public class ventana extends javax.swing.JFrame {
         arriba.setVisible(false);
         abajo.setVisible(false);
         this.setLocationRelativeTo(null);
+        setResizable(false);
     }
     @SuppressWarnings("unchecked")
     int matriz[][] = new int[3][3];
@@ -47,11 +48,7 @@ public class ventana extends javax.swing.JFrame {
             jPanel3.setBackground(Color.white);
             jPanel4.setBackground(Color.yellow);
         }
-        if(jx.getText()== puntaje.getText() || jo.getText()== puntaje.getText() )
-        {
-            Mensaje mn = new Mensaje();
-            mn.setVisible(true);            
-        }
+
     }
     //reiniciar el juego
     public void reiniciar()
@@ -345,7 +342,7 @@ public class ventana extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 170, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 190, -1));
 
         borrar1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         borrar1.setText("Salir del Juego");

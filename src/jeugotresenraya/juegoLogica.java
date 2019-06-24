@@ -4,6 +4,10 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import static jeugotresenraya.ventana.puntaje;
 import jeugotresenraya.Mensaje;
+import static jeugotresenraya.RegistroPrincipal.jTextField1;
+import static jeugotresenraya.RegistroPrincipal.jTextField2;
+import static jeugotresenraya.ventana.jLabel1;
+import static jeugotresenraya.ventana.jLabel3;
 public class juegoLogica {
     int turno;
     int pX;
@@ -89,18 +93,36 @@ public class juegoLogica {
         intercambiar();
         bt.setText(n);
         bt.setEnabled(false);
-        
+
         if(juego(matriz) != 0){
             JOptionPane.showMessageDialog(null,"GANASTE " + n);
             if(getTurno()==1)
             {
              setpX(getpX()+1); 
              jx.setText(String.valueOf(getpX()));
+             
+             if(jx.getText().equals(puntaje.getText()))
+            {
+                ventana ven = new ventana();
+                Mensaje a = new Mensaje();
+                a.ganador.setText(jTextField1.getText());
+                ven.setVisible(false);
+                ven.setEnabled(false);
+                a.setVisible(true);
+            }
             }
             if(getTurno()==0)
             {
              setpO(getpO()+1); 
              jo.setText(String.valueOf(getpO()));
+             if(jo.getText().equals(puntaje.getText())){
+                ventana ven = new ventana();
+                Mensaje a = new Mensaje();
+                a.ganador.setText(jTextField2.getText());
+                ven.setVisible(false);
+                ven.setEnabled(false);
+                a.setVisible(true);
+            }
             }
             return 1;
         }
